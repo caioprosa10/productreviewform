@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Submit a product review with rating, install date, and useful features." />
+  <title>Product Review | WDD 131</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <h1>Product Review</h1>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <!-- GitHub Pages requires GET; confirmation in review.html -->
+    <form id="reviewForm" action="review.html" method="get" novalidate>
+      <!-- Product Name (required) -->
+      <fieldset>
+        <legend>
+          Product Name <span class="req" aria-hidden="true">*</span>
+          <span class="required-label">Required</span>
+        </legend>
+        <label class="sr-only" for="productName">Choose a product</label>
+        <select id="productName" name="productName" required aria-required="true">
+          <option value="" disabled selected>Select a Product ...</option>
+          <!-- options injected by scripts/form.js -->
+        </select>
+      </fieldset>
+
+      <!-- Overall Rating (required) -->
+      <fieldset>
+        <legend>
+          Overall Rating <span class="req" aria-hidden="true">*</span>
+          <span class="required-label">Required</span>
+        </legend>
+        <div class="rating" role="radiogroup" aria-label="Overall rating">
+          <input type="radio" id="rate1" name="rating" value="1" required aria-required="true" />
+          <label for="rate1" aria-label="1 star" title="1 star">☆</label>
+
+          <input type="radio" id="rate2" name="rating" value="2" />
+          <label for="rate2" aria-label="2 stars" title="2 stars">☆</label>
+
+          <input type="radio" id="rate3" name="rating" value="3" />
+          <label for="rate3" aria-label="3 stars" title="3 stars">☆</label>
+
+          <input type="radio" id="rate4" name="rating" value="4" />
+          <label for="rate4" aria-label="4 stars" title="4 stars">☆</label>
+
+          <input type="radio" id="rate5" name="rating" value="5" />
+          <label for="rate5" aria-label="5 stars" title="5 stars">☆</label>
+        </div>
+        <p class="hint">Os botões do rating compartilham o mesmo <code>name</code> para permitir apenas uma seleção.</p>
+      </fieldset>
+
+      <!-- Date of Installation (required) -->
+      <fieldset>
+        <legend>
+          Date of Installation <span class="req" aria-hidden="true">*</span>
+          <span class="required-label">Required</span>
+        </legend>
+        <label for="installDate" class="sr-only">Installation date</label>
+        <input type="date" id="installDate" name="installDate" required aria-required="true" />
+      </fieldset>
+
+      <!-- Useful Features (check all that apply) -->
+      <fieldset>
+        <legend>Which features did you find useful? <span class="sub">(Check all that apply)</span></legend>
+        <div class="checks">
+          <div class="check">
+            <input type="checkbox" id="feat-durability" name="features" value="Durability" />
+            <label for="feat-durability">Durability</label>
+          </div>
+          <div class="check">
+            <input type="checkbox" id="feat-ease" name="features" value="Ease of Use" />
+            <label for="feat-ease">Ease of Use</label>
+          </div>
+          <div class="check">
+            <input type="checkbox" id="feat-performance" name="features" value="Performance" />
+            <label for="feat-performance">Performance</label>
+          </div>
+          <div class="check">
+            <input type="checkbox" id="feat-design" name="features" value="Design" />
+            <label for="feat-design">Design</label>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Written Review (optional) -->
+      <fieldset>
+        <legend>Written Review <span class="sub">(Optional)</span></legend>
+        <label for="writtenReview" class="sr-only">Your review</label>
+        <textarea id="writtenReview" name="writtenReview" rows="6" placeholder="Share your experience..."></textarea>
+      </fieldset>
+
+      <!-- Your Name (optional) -->
+      <fieldset>
+        <legend>Your Name <span class="sub">(Optional)</span></legend>
+        <label for="userName" class="sr-only">Your name</label>
+        <input type="text" id="userName" name="userName" autocomplete="name" />
+      </fieldset>
+
+      <!-- Submit -->
+      <div class="actions">
+        <input type="submit" value="Post Review" />
+      </div>
+    </form>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>© <span id="year"></span> Caio Palladino Da Rosa — WDD 131</p>
+    <p class="muted">Last Modified: <span id="modified"></span></p>
+  </footer>
+
+  <script src="scripts/form.js" defer></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('modified').textContent = document.lastModified;
+  </script>
+</body>
+</html>

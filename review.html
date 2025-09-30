@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Product review confirmation and submission counter." />
+  <title>Review Submitted | WDD 131</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Thanks for your review!</h1>
+  </header>
+
+  <main>
+    <section class="card" aria-labelledby="detailsTitle">
+      <h2 id="detailsTitle">Submission Details</h2>
+      <dl class="details" id="details"></dl>
+      <p class="counter">
+        You have submitted <strong id="reviewCount">0</strong> review(s) on this device.
+      </p>
+      <p><a class="btn" href="index.html" rel="noopener">Submit another review</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Caio Palladino Da Rosa — WDD 131</p>
+    <p class="muted">Last Modified: <span id="modified"></span></p>
+  </footer>
+
+  <script src="scripts/review.js" defer></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('modified').textContent = document.lastModified;
+  </script>
+</body>
+</html>
